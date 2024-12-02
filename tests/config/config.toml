@@ -1,0 +1,30 @@
+# to set which keys are expected to be retrieved by environmental variables
+# the value is the key that will be lookedup on the environments variables
+[account]
+id="ACCOUNT_ID"
+region="REGION_ID"
+environment="ENVIRONMENT_NAME"
+
+# data lake storage names to be applied
+# if some does not apply, leave it with "" (blank) value.
+# e.g.: assets_name=""
+[data-lake-storage]
+first_layer="raw"
+second_layer="stage"
+third_layer="analytics"
+landing_zone="landing"
+assets="data-lake-assets"
+
+# company information (customer) for naming pattern and tags
+[company]
+name="Amazon Web Services"
+short_name="aws"
+
+# project information for naming pattern and tags
+[project]
+name="Data Lakehouse"
+short_name="dlh"
+
+# additional tags to be used in default tags, not mandatory, can be removed
+[additional-tags]
+tag="Me"
