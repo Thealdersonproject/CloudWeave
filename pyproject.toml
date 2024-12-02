@@ -1,0 +1,88 @@
+[project]
+name = "aws-cdk-data-lake-python"
+version = "0.1.0"
+description = "This project aims to modularize the usage of Aws CDK to construct resources in a standardized fashion."
+readme = "README.md"
+requires-python = "~=3.11"
+dependencies = [
+    "aws-cdk-lib>=2.164.1",
+    "constructs>=10.4.2",
+    "loguru>=0.7.2",
+    "pydantic>=2.9.2",
+    "python-dotenv>=1.0.1",
+    "toml>=0.10.2",
+    "setuptools>=75.6.0",
+    "wheel>=0.45.1",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "black==24.10.0",
+    "pyright>=1.1.388",
+    "pytest==8.3.3",
+    "ruff==0.7.1",
+    "typos==1.26.8",
+    "pre-commit"
+]
+
+[tool.ruff]
+src = ["app"]
+line-length = 120
+show-fixes = true
+unsafe-fixes = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["COM812", "ISC001", "TCH001", "G002"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 120
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pylint]
+max-args = 10
+
+[tool.pyright]
+include = ["app"]  # Adjust this to your source directory
+exclude = [
+    "**/.venv",
+    "**/__pycache__",
+    "**/tests"
+]
+typeCheckingMode = "basic"  # For strictest type checking
+reportMissingTypeStubs = true
+reportUnknownParameterType = true
+reportUnknownArgumentType = true
+reportUnknownLambdaType = true
+reportUnknownVariableType = true
+reportUnknownMemberType = true
+reportMissingTypeArgument = true
+reportInvalidTypeVarUse = true
+reportUnnecessaryCast = true
+reportUnnecessaryComparison = true
+reportUnnecessaryContains = true
+reportCallInDefaultInitializer = true
+reportPropertyTypeMismatch = true
+reportWildcardImportFromLibrary = true
+reportUntypedFunctionDecorator = true
+reportUntypedClassDecorator = true
+reportUntypedBaseClass = true
+useLibraryCodeForTypes = true
+venvPath = "."
+venv = ".venv"
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+split-on-trailing-comma = true
+relative-imports-order = "closest-to-furthest"
+force-single-line = false
+force-wrap-aliases = false
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
